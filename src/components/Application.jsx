@@ -36,7 +36,7 @@ class Application extends Component {
 
     //filter the posts array and only keep the ones that are not equal to that id
     const posts = allPosts.filter(post => post.id !== id);
-    
+
     this.setState({ posts });
   }
 
