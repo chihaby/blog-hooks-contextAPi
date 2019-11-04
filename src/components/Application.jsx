@@ -29,13 +29,24 @@ class Application extends Component {
     this.setState({ posts: [newPost, ...posts] });
   };
 
+  handleRemove = async id => {
+    const allPosts = this.state.posts;
+
+    await firestore.doc(`posts/${id}`).delete();
+
+    //filter the posts array and only keep the ones that are not equal to that id
+    const posts = allPosts.filter(post => post.id !== id);
+    
+    this.setState({ posts });
+  }
+
   render() {
     const { posts } = this.state;
 
     return (
       <main className="Application">
         <h1>Think Piece</h1>
-        <Posts posts={posts} onCreate={this.handleCreate} />
+        <Posts posts={posts} onCreate={this.handleCreate} onRemove={this.handleRemove}/>
       </main>
     );
   }
