@@ -28,7 +28,7 @@ const Post = ({ title, content, user, createdAt, stars, comments, onRemove }) =>
         </div>
         <div>
           <button className="star">Star</button>
-          <button className="delete" onClick={() => onRemove(id)}>Delete</button>
+          <button className="delete" onClick={() => onRemove()}>Delete</button>
         </div>
       </div>
     </article>
