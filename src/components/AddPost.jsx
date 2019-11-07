@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { firestore } from 'firebase';
+import { firestore } from '../firebase';
 
 class AddPost extends Component {
   state = { title: '', content: '' };
@@ -19,8 +19,8 @@ class AddPost extends Component {
       content,
       user: {
         uid: '1111',
-        displayName: 'Steve Kinney',
-        email: 'steve@mailinator.com',
+        displayName: 'Rad',
+        email: 'Rad@gmail.com',
         photoURL: 'http://placekitten.com/g/200/200',
       },
       favorites: 0,
@@ -28,7 +28,7 @@ class AddPost extends Component {
       createdAt: new Date(),
     }
 
-    firestore.CollectionReference('posts').doc(post.id).set(post);
+    firestore.collection('posts').add(post);
 
     this.setState({ title: '', content: '' });
   };
