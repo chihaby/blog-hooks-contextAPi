@@ -15,16 +15,16 @@ class Application extends Component {
 
   componentDidMount = async () => {
 
-  this.unsubscribeFromFirestore = firestore.collection('posts').onSnapshot(snapshot => {
-    const posts = snapshot.docs.map(collectIdsAndDocs);
-    this.setState({ posts });
-    });  
+    this.unsubscribeFromFirestore = firestore.collection('posts').onSnapshot(snapshot => {
+      const posts = snapshot.docs.map(collectIdsAndDocs);
+      this.setState({ posts });
+      });  
 
-  this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
-      const user = await createUserProfileDocument(userAuth);
-      console.log(user);
-      this.setState({ user });
-    });
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+        const user = await createUserProfileDocument(userAuth);
+        console.log(user);
+        this.setState({ user });
+      });
   };
 
   componentWillUnmount = () => {
@@ -33,6 +33,7 @@ class Application extends Component {
 
 
   render() {
+
     const { posts, user } = this.state;
 
     return (
