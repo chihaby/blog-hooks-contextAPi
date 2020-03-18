@@ -4,7 +4,7 @@ import 'firebase/auth';
 import 'firebase/storage';
 
 const config = {
-  apiKey: 'AIzaSyA3C2ip511tOPc1_DfVU9MNrlIpCeFbmWQ',
+  apiKey: process.env.API_KEY,
   authDomain: 'think-piece-live-dc187.firebaseapp.com',
   databaseURL: 'https://think-piece-live-dc187.firebaseio.com',
   projectId: 'think-piece-live-dc187',
